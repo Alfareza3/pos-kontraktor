@@ -1,7 +1,4 @@
 <?php
-include '../header.php';
-include '../topbar.php';
-include '../sidebar.php';
 require '../../inc/koneksi.php';
 
 $id = $_GET['id'];
@@ -26,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   exit;
 }
 ?>
+
+<?php include '../header.php'; ?>
+<?php include '../topbar.php'; ?>
+<?php include '../sidebar.php'; ?>
 
 <div class="p-4 flex-grow-1">
   <h4>✏️ Edit Bahan Bangunan</h4>

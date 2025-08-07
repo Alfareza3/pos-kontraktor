@@ -1,4 +1,5 @@
 <?php
+ob_start(); // Hindari error header
 include '../header.php';
 include '../topbar.php';
 include '../sidebar.php';
@@ -16,7 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $hadir = isset($_POST['hadir']) ? 1 : 0;
 
   mysqli_query($conn, "UPDATE absensi SET 
-    pekerja_id='$pekerja_id', proyek_id='$proyek_id', tanggal='$tanggal', hadir='$hadir' 
+    pekerja_id='$pekerja_id', 
+    proyek_id='$proyek_id', 
+    tanggal='$tanggal', 
+    hadir='$hadir' 
     WHERE id=$id");
 
   header("Location: index.php");
@@ -53,4 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="mb-3 form-check">
       <input type="checkbox" name="hadir" class="form-check-input" <?= $data['hadir'] ? 'checked' : '' ?>>
-      <label cla
+      <label class="form-check-label">Hadir</label>
+    </div>
+    <button class="btn btn-primary">Update</button>
+    <a href="index.php" class="btn btn-secondary">Kembali</a>
+  </form>
+</div>
+
+<?php
+include '../footer.php';
+ob_end_flush();
+?>

@@ -1,7 +1,4 @@
 <?php
-include '../header.php';
-include '../topbar.php';
-include '../sidebar.php';
 require '../../inc/koneksi.php';
 
 $proyek = mysqli_query($conn, "SELECT * FROM proyek");
@@ -18,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   header("Location: index.php");
   exit;
 }
+
+include '../header.php';
+include '../topbar.php';
+include '../sidebar.php';
 ?>
 
 <div class="p-4 flex-grow-1">

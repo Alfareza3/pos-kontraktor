@@ -1,7 +1,4 @@
 <?php
-include '../header.php';
-include '../topbar.php';
-include '../sidebar.php';
 require '../../inc/koneksi.php';
 
 $id = $_GET['id'];
@@ -21,6 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   header("Location: index.php");
   exit;
 }
+
+include '../header.php';
+include '../topbar.php';
+include '../sidebar.php';
 ?>
 
 <div class="p-4 flex-grow-1">

@@ -1,7 +1,4 @@
 <?php
-include '../header.php';
-include '../topbar.php';
-include '../sidebar.php';
 require '../../inc/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,6 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<?php include '../header.php'; ?>
+<?php include '../topbar.php'; ?>
+<?php include '../sidebar.php'; ?>
+
 <div class="p-4 flex-grow-1">
   <h4>➕ Tambah Proyek</h4>
   <form method="POST">
@@ -37,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="mb-3">
       <label>Tanggal Mulai</label>
-      <input type="date" name="tanggal_mulai" class="form-control">
+      <input type="date" name="tanggal_mulai" class="form-control" required>
     </div>
     <div class="mb-3">
       <label>Tanggal Selesai</label>
-      <input type="date" name="tanggal_selesai" class="form-control">
+      <input type="date" name="tanggal_selesai" class="form-control" required>
     </div>
     <div class="mb-3">
       <label>Status</label>

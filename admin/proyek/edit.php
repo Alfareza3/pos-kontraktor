@@ -1,12 +1,9 @@
 <?php
-include '../header.php';
-include '../topbar.php';
-include '../sidebar.php';
 require '../../inc/koneksi.php';
 
 $id = $_GET['id'];
-$data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM proyek WHERE id=$id"));
 
+// Tangani form submit dulu, sebelum output apapun dikirim
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $nama = $_POST['nama_proyek'];
   $lokasi = $_POST['lokasi'];
@@ -20,10 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     tanggal_mulai='$mulai', tanggal_selesai='$selesai', status='$status'
     WHERE id=$id");
 
+  // Redirect sebelum HTML keluar
   header("Location: index.php");
   exit;
 }
+
+// Ambil data hanya jika belum POST
+$data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM proyek WHERE id=$id"));
 ?>
+
+<?php include '../header.php'; ?>
+<?php include '../topbar.php'; ?>
+<?php include '../sidebar.php'; ?>
 
 <div class="p-4 flex-grow-1">
   <h4>✏️ Edit Proyek</h4>
