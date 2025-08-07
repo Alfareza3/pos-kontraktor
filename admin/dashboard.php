@@ -20,8 +20,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
 <div class="flex-grow-1 p-4">
   <h4 class="mb-4">📊 <strong>Dashboard Admin</strong></h4>
   <div class="row g-4">
-
-    <!-- CARD -->
     <?php
     $cards = [
       ['icon' => '🏗️', 'title' => 'Proyek', 'value' => $jumlah_proyek],
@@ -48,8 +46,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
       </div>
     <?php endforeach; ?>
   </div>
-
-  <!-- Grafik -->
   <div class="mt-5">
     <h5 class="mb-3">📈 <strong>Visualisasi Data Statistik</strong></h5>
     <div class="row g-4">
@@ -72,8 +68,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
     </div>
   </div>
 </div>
-
-<!-- Tambahkan Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   const dataLabels = ['Proyek', 'Pekerja', 'Bahan', 'Absensi', 'Pengeluaran lain-lain'];
@@ -84,8 +78,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
     <?= $jumlah_absensi ?>,
     <?= $jumlah_pengeluaran ?>
   ];
-
-  // Bar Chart
   const barCtx = document.getElementById('barChart').getContext('2d');
   new Chart(barCtx, {
     type: 'bar',
@@ -121,8 +113,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
       }
     }
   });
-
-  // Pie Chart
   const pieCtx = document.getElementById('pieChart').getContext('2d');
   new Chart(pieCtx, {
     type: 'pie',

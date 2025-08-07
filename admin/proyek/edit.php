@@ -2,8 +2,6 @@
 require '../../inc/koneksi.php';
 
 $id = $_GET['id'];
-
-// Tangani form submit dulu, sebelum output apapun dikirim
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $nama = $_POST['nama_proyek'];
   $lokasi = $_POST['lokasi'];
@@ -16,13 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     nama_proyek='$nama', lokasi='$lokasi', klien='$klien',
     tanggal_mulai='$mulai', tanggal_selesai='$selesai', status='$status'
     WHERE id=$id");
-
-  // Redirect sebelum HTML keluar
   header("Location: index.php");
   exit;
 }
-
-// Ambil data hanya jika belum POST
 $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM proyek WHERE id=$id"));
 ?>
 

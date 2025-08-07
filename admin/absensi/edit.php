@@ -1,5 +1,5 @@
 <?php
-ob_start(); // Hindari error header
+ob_start();
 include '../header.php';
 include '../topbar.php';
 include '../sidebar.php';

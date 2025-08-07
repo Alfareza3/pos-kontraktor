@@ -4,7 +4,6 @@ require __DIR__ . '/../topbar.php';
 require __DIR__ . '/../sidebar.php';
 require __DIR__ . '/../../inc/koneksi.php';
 
-// Pencarian
 $cari = isset($_GET['cari']) ? mysqli_real_escape_string($conn, $_GET['cari']) : '';
 
 if ($cari) {
@@ -30,8 +29,6 @@ if ($cari) {
         <h4 class="mb-0">👷 Data Pekerja</h4>
         <a href="tambah.php" class="btn btn-success">➕ Tambah Pekerja</a>
       </div>
-
-      <!-- Form Pencarian -->
       <form method="GET" class="mb-3">
         <div class="input-group">
           <input type="text" name="cari" class="form-control" placeholder="Cari berdasarkan nama, jabatan, atau proyek..." value="<?= htmlspecialchars($cari) ?>">

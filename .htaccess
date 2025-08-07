@@ -1,0 +1,13 @@
+# Aktifkan mod_rewrite
+RewriteEngine On
+
+# Lindungi file penting agar tidak bisa diakses langsung
+<FilesMatch "(\.env|\.htaccess|koneksi\.php)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Jika butuh URL cantik di masa depan, aturan ini bisa diaktifkan:
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.+)$ index.php?page=$1 [L,QSA]

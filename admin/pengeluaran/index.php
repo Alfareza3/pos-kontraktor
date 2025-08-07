@@ -3,8 +3,6 @@ require __DIR__ . '/../header.php';
 require __DIR__ . '/../topbar.php';
 require __DIR__ . '/../sidebar.php';
 require __DIR__ . '/../../inc/koneksi.php';
-
-// Ambil keyword pencarian jika ada
 $cari = isset($_GET['cari']) ? mysqli_real_escape_string($conn, $_GET['cari']) : '';
 
 $query = "SELECT pengeluaran_lain.*, proyek.nama_proyek 
@@ -27,8 +25,6 @@ $data = mysqli_query($conn, $query);
         <h4 class="mb-0">💸 Data Pengeluaran Lain-Lain</h4>
         <a href="tambah.php" class="btn btn-success">➕ Tambah Pengeluaran</a>
       </div>
-
-      <!-- Form Pencarian -->
       <form method="GET" class="mb-3">
         <div class="input-group">
           <input type="text" name="cari" class="form-control" placeholder="Cari proyek / keterangan..." value="<?= htmlspecialchars($cari) ?>">

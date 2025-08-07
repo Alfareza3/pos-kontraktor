@@ -6,12 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="POS Kontraktor - Sistem Manajemen Proyek Konstruksi PT Green Sukses Lestari.">
   <meta name="author" content="PT Green Sukses Lestari">
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  
-  <!-- Bootstrap CSS -->
+  <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
   <style>
     body {
       background: linear-gradient(135deg, #e8fce8, #c9f9c9);

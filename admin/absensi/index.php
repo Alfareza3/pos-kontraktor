@@ -4,7 +4,6 @@ require __DIR__ . '/../topbar.php';
 require __DIR__ . '/../sidebar.php';
 require __DIR__ . '/../../inc/koneksi.php';
 
-// Ambil keyword pencarian jika ada
 $cari = isset($_GET['cari']) ? mysqli_real_escape_string($conn, $_GET['cari']) : '';
 
 $query = "SELECT absensi.*, pekerja.nama AS nama_pekerja, proyek.nama_proyek 

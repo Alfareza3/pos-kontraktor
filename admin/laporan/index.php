@@ -4,7 +4,6 @@ require __DIR__ . '/../topbar.php';
 require __DIR__ . '/../sidebar.php';
 require __DIR__ . '/../../inc/koneksi.php';
 
-// Ambil keyword pencarian
 $cari = isset($_GET['cari']) ? mysqli_real_escape_string($conn, $_GET['cari']) : '';
 
 $query = "SELECT * FROM proyek";
@@ -20,7 +19,6 @@ $proyek = mysqli_query($conn, $query);
     <div class="card-body">
       <h4 class="mb-3">📊 Laporan Proyek</h4>
 
-      <!-- Form Pencarian -->
       <form method="GET" class="mb-3">
         <div class="input-group">
           <input type="text" name="cari" class="form-control" placeholder="Cari nama proyek..." value="<?= htmlspecialchars($cari) ?>">
@@ -31,7 +29,6 @@ $proyek = mysqli_query($conn, $query);
         </div>
       </form>
 
-      <!-- Tabel Laporan -->
       <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle">
           <thead class="table-light">
@@ -47,12 +44,8 @@ $proyek = mysqli_query($conn, $query);
             <?php if (mysqli_num_rows($proyek) > 0) : ?>
               <?php while ($p = mysqli_fetch_assoc($proyek)) :
                 $proyek_id = $p['id'];
-
-                // Total bahan
                 $q_bahan = mysqli_query($conn, "SELECT SUM(harga_total) as total FROM bahan WHERE proyek_id = $proyek_id");
                 $total_bahan = (int)(mysqli_fetch_assoc($q_bahan)['total'] ?? 0);
-
-                // Total upah pekerja dari absensi (yang hadir)
                 $q_upah = mysqli_query($conn, "
                   SELECT SUM(pekerja.upah_harian) as total
                   FROM absensi 
@@ -61,7 +54,6 @@ $proyek = mysqli_query($conn, $query);
                 ");
                 $total_upah = (int)(mysqli_fetch_assoc($q_upah)['total'] ?? 0);
 
-                // Total pengeluaran lain
                 $q_lain = mysqli_query($conn, "SELECT SUM(jumlah) as total FROM pengeluaran_lain WHERE proyek_id = $proyek_id");
                 $total_lain = (int)(mysqli_fetch_assoc($q_lain)['total'] ?? 0);
 

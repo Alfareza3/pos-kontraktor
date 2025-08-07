@@ -1,5 +1,5 @@
 <?php
-ob_start(); // Hindari error "headers already sent"
+ob_start();
 include '../header.php';
 include '../topbar.php';
 include '../sidebar.php';
@@ -58,5 +58,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 include '../footer.php';
-ob_end_flush(); // End output buffering
+ob_end_flush();
 ?>
