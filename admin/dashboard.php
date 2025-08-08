@@ -13,7 +13,6 @@ require __DIR__ . '/sidebar.php';
 $jumlah_proyek       = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM proyek"));
 $jumlah_pekerja      = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM pekerja"));
 $jumlah_bahan        = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM bahan"));
-$jumlah_absensi      = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM absensi"));
 $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM pengeluaran_lain"));
 ?>
 
@@ -25,7 +24,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
       ['icon' => '🏗️', 'title' => 'Proyek', 'value' => $jumlah_proyek],
       ['icon' => '👷', 'title' => 'Pekerja', 'value' => $jumlah_pekerja],
       ['icon' => '🧱', 'title' => 'Bahan', 'value' => $jumlah_bahan],
-      ['icon' => '🗓️', 'title' => 'Absensi', 'value' => $jumlah_absensi],
       ['icon' => '💸', 'title' => 'Pengeluaran lain-lain', 'value' => $jumlah_pengeluaran],
     ];
 
@@ -70,12 +68,11 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const dataLabels = ['Proyek', 'Pekerja', 'Bahan', 'Absensi', 'Pengeluaran lain-lain'];
+  const dataLabels = ['Proyek', 'Pekerja', 'Bahan', 'Pengeluaran lain-lain'];
   const dataValues = [
     <?= $jumlah_proyek ?>,
     <?= $jumlah_pekerja ?>,
     <?= $jumlah_bahan ?>,
-    <?= $jumlah_absensi ?>,
     <?= $jumlah_pengeluaran ?>
   ];
   const barCtx = document.getElementById('barChart').getContext('2d');
@@ -90,7 +87,6 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
           '#198754cc',
           '#0d6efdcc',
           '#ffc107cc',
-          '#6f42c1cc',
           '#dc3545cc'
         ],
         borderColor: '#ffffff00',
@@ -113,35 +109,37 @@ $jumlah_pengeluaran  = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM penge
       }
     }
   });
-  const pieCtx = document.getElementById('pieChart').getContext('2d');
-  new Chart(pieCtx, {
-    type: 'pie',
-    data: {
-      labels: dataLabels,
-      datasets: [{
-        label: 'Komposisi',
-        data: dataValues,
-        backgroundColor: [
-          '#198754cc',
-          '#0d6efdcc',
-          '#ffc107cc',
-          '#6f42c1cc',
-          '#dc3545cc'
-        ],
-        borderColor: '#fff',
-        borderWidth: 2
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom'
-        },
+const pieCtx = document.getElementById('pieChart').getContext('2d');
+new Chart(pieCtx, {
+  type: 'pie',
+  data: {
+    labels: dataLabels,
+    datasets: [{
+      label: 'Komposisi',
+      data: dataValues,
+      backgroundColor: [
+        '#198754cc',
+        '#0d6efdcc',
+        '#ffc107cc',
+        '#6f42c1cc',
+        '#dc3545cc'
+      ],
+      borderColor: '#fff',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        onClick: (e) => e.stopPropagation()
+      },
         tooltip: { enabled: true }
-      }
     }
-  });
+  }
+});
+
 </script>
 
 <?php require __DIR__ . '/footer.php'; ?>

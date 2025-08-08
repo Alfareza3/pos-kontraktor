@@ -23,11 +23,6 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/pos-kontraktor/admin/absensi/index.php" class="nav-link text-dark">
-          🗓️ Absensi
-        </a>
-      </li>
-      <li class="nav-item">
         <a href="/pos-kontraktor/admin/pengeluaran/index.php" class="nav-link text-dark">
           💸 Pengeluaran
         </a>

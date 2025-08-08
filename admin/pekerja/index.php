@@ -45,7 +45,7 @@ if ($cari) {
             <tr>
               <th>Nama</th>
               <th>Jabatan</th>
-              <th>Upah Harian</th>
+              <th>Upah Borongan</th>
               <th>Proyek</th>
               <th>Aksi</th>
             </tr>
@@ -59,7 +59,7 @@ if ($cari) {
                     <span class="badge bg-primary"><?= htmlspecialchars($row['jabatan']) ?></span>
                   </td>
                   <td>
-                    <span class="text-success fw-semibold">Rp <?= number_format($row['upah_harian'], 0, ',', '.') ?></span>
+                    <span class="text-success fw-semibold">Rp <?= number_format($row['upah_borongan'], 0, ',', '.') ?></span>
                   </td>
                   <td><?= htmlspecialchars($row['nama_proyek'] ?? '-') ?></td>
                   <td>

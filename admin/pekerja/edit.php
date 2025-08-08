@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $proyek_id = $_POST['proyek_id'];
   $nama = $_POST['nama'];
   $jabatan = $_POST['jabatan'];
-  $upah = $_POST['upah_harian'];
+  $upah = $_POST['upah_borongan'];
 
   mysqli_query($conn, "UPDATE pekerja SET 
-    proyek_id='$proyek_id', nama='$nama', jabatan='$jabatan', upah_harian='$upah'
+    proyek_id='$proyek_id', nama='$nama', jabatan='$jabatan', upah_borongan='$upah'
     WHERE id=$id");
 
   header("Location: index.php");
@@ -36,8 +36,8 @@ include '../sidebar.php';
       <input type="text" name="jabatan" class="form-control" value="<?= $data['jabatan'] ?>" required>
     </div>
     <div class="mb-3">
-      <label>Upah Harian (Rp)</label>
-      <input type="number" name="upah_harian" class="form-control" value="<?= $data['upah_harian'] ?>" required>
+      <label>Upah Borongan (Rp)</label>
+      <input type="number" name="upah_borongan" class="form-control" value="<?= $data['upah_borongan'] ?>" required>
     </div>
     <div class="mb-3">
       <label>Proyek</label>

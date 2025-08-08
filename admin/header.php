@@ -16,6 +16,7 @@ if (!isset($_SESSION['admin'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="/pos-kontraktor/assets/js/script.js" defer></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;

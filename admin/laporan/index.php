@@ -47,10 +47,9 @@ $proyek = mysqli_query($conn, $query);
                 $q_bahan = mysqli_query($conn, "SELECT SUM(harga_total) as total FROM bahan WHERE proyek_id = $proyek_id");
                 $total_bahan = (int)(mysqli_fetch_assoc($q_bahan)['total'] ?? 0);
                 $q_upah = mysqli_query($conn, "
-                  SELECT SUM(pekerja.upah_harian) as total
-                  FROM absensi 
-                  JOIN pekerja ON absensi.pekerja_id = pekerja.id
-                  WHERE absensi.hadir = 1 AND absensi.proyek_id = $proyek_id
+                  SELECT SUM(upah_borongan) as total
+                  FROM pekerja
+                  WHERE proyek_id = $proyek_id
                 ");
                 $total_upah = (int)(mysqli_fetch_assoc($q_upah)['total'] ?? 0);
 

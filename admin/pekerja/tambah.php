@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $proyek_id = $_POST['proyek_id'];
   $nama = $_POST['nama'];
   $jabatan = $_POST['jabatan'];
-  $upah = $_POST['upah_harian'];
+  $upah = $_POST['upah_borongan'];
 
-  mysqli_query($conn, "INSERT INTO pekerja (proyek_id, nama, jabatan, upah_harian) 
+  mysqli_query($conn, "INSERT INTO pekerja (proyek_id, nama, jabatan, upah_borongan) 
     VALUES ('$proyek_id', '$nama', '$jabatan', '$upah')");
 
   header("Location: index.php");
@@ -33,8 +33,8 @@ include '../sidebar.php';
       <input type="text" name="jabatan" class="form-control" required>
     </div>
     <div class="mb-3">
-      <label>Upah Harian (Rp)</label>
-      <input type="number" name="upah_harian" class="form-control" required>
+      <label>Upah Borongan (Rp)</label>
+      <input type="number" name="upah_borongan" class="form-control" required>
     </div>
     <div class="mb-3">
       <label>Proyek</label>

@@ -11,7 +11,6 @@ Website manajemen proyek konstruksi internal untuk **PT Green Sukses Lestari**, 
 * 🏗️ **Manajemen Proyek** – CRUD data proyek dengan sistem pencarian
 * 👷 **Manajemen Pekerja** – Kelola data pekerja dan upah
 * 🧱 **Inventaris Bahan Bangunan** – Pencatatan stok bahan
-* 🗓️ **Absensi Harian** – Kehadiran pekerja per proyek
 * 💸 **Pengeluaran Lain-lain** – Input biaya tambahan
 * 📈 **Laporan Visual (Chart.js)** – Diagram batang & pie data proyek
 * 🔎 **Pencarian Data** – Cari proyek berdasarkan nama, lokasi, atau klien
